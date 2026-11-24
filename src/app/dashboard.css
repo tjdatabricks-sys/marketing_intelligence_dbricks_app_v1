@@ -193,6 +193,17 @@ main {
 .filter select {
   min-width: 140px;
 }
+.filter textarea {
+  width: 100%;
+  padding: 9px;
+  background: white;
+  border: 1px solid #dbe2ea;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: inherit;
+  color: #23344b;
+  resize: vertical;
+}
 .filter-help {
   margin: 12px 0 0;
   font-size: 11px;
@@ -220,7 +231,8 @@ button:disabled {
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
-select:focus-visible {
+select:focus-visible,
+textarea:focus-visible {
   outline: 2px solid #0d9488;
   outline-offset: 3px;
 }
@@ -430,6 +442,69 @@ tbody tr:hover {
 }
 .wide {
   flex: 2;
+}
+.chat-turns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.chat-user,
+.chat-genie {
+  border-radius: 9px;
+  padding: 13px 16px;
+  font-size: 12px;
+}
+.chat-user {
+  background: #edf8f6;
+  border: 1px solid #d3ece7;
+}
+.chat-genie {
+  background: #f8fafb;
+  border: 1px solid #e0e6ed;
+}
+.chat-user b,
+.chat-genie b {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #0d9488;
+  margin-bottom: 7px;
+}
+.chat-user p,
+.chat-genie p {
+  margin: 0;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+.chat-genie details {
+  margin-top: 10px;
+  border: 1px solid #e0e6ed;
+  border-radius: 7px;
+  background: white;
+  overflow: hidden;
+}
+.chat-genie summary {
+  cursor: pointer;
+  padding: 9px 12px;
+  font-size: 11px;
+  color: #0d9488;
+}
+.chat-genie pre {
+  margin: 0;
+  padding: 12px;
+  font-size: 10.5px;
+  line-height: 1.55;
+  background: #0c192c;
+  color: #d7e3f0;
+  border-radius: 0 0 7px 7px;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+.chat-genie .table-scroll {
+  max-height: 320px;
+  border-top: 1px solid #eaf0f5;
 }
 @media (max-width: 1100px) {
   .sidebar {

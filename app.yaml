@@ -6,6 +6,8 @@ env:
     value: "market-poc-updated"
   - name: DATABRICKS_SCHEMA
     value: "05gold"
+  - name: DATABRICKS_GENIE_SPACE_ID
+    value: "01f1e80b883c1c23a0512159f0343f4f"
   - name: NEXT_TELEMETRY_DISABLED
     value: "1"
   - name: DATABRICKS_QUERY_CONCURRENCY

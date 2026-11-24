@@ -316,6 +316,167 @@ function Explorer() {
   );
 }
 
+interface GenieQueryResultData {
+  attachmentId: string;
+  sql: string;
+  columns: string[];
+  rows: unknown[][];
+  rowCount: number;
+  truncated: boolean;
+}
+interface GenieReplyData {
+  conversationId: string;
+  messageId: string;
+  status: string;
+  answer: string;
+  queries: GenieQueryResultData[];
+}
+function GenieChat() {
+  const [turns, setTurns] = useState<
+    { role: "user" | "genie"; text: string; reply?: GenieReplyData }[]
+  >([]);
+  const [draft, setDraft] = useState("");
+  const [conversationId, setConversationId] = useState<string | undefined>();
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<Failure>();
+  async function ask(question: string) {
+    if (!question || busy) return;
+    setDraft("");
+    setTurns((prev) => [...prev, { role: "user", text: question }]);
+    setBusy(true);
+    setError(undefined);
+    try {
+      const response = await fetch("/api/genie", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: question, conversationId }),
+        cache: "no-store",
+      });
+      const data = await response.json();
+      if (!response.ok) throw data;
+      const reply = data as GenieReplyData;
+      setConversationId(reply.conversationId);
+      setTurns((prev) => [...prev, { role: "genie", text: reply.answer, reply }]);
+    } catch (e) {
+      setTurns((prev) => prev.slice(0, -1));
+      setDraft(question);
+      setError((e as Failure) ?? { error: "The request failed." });
+    } finally {
+      setBusy(false);
+    }
+  }
+  return (
+    <section className="panel">
+      <div className="panel-heading">
+        <h2>Ask Genie</h2>
+        <span className="source-name">Marketing Data Warehouse agent</span>
+      </div>
+      <p className="muted panel-note">
+        Ask natural-language questions about the marketing data warehouse.
+        Answers come from the Marketing Data Warehouse Overview and Insights
+        agent over the same 47-table gold schema. Follow-ups stay in one
+        conversation; the SQL behind each answer is shown with its results.
+      </p>
+      {turns.length > 0 && (
+        <div className="chat-turns">
+          {turns.map((turn, i) => (
+            <article
+              className={turn.role === "user" ? "chat-user" : "chat-genie"}
+              key={i}
+            >
+              <b>{turn.role === "user" ? "You" : "Genie"}</b>
+              <p>{turn.text}</p>
+              {turn.reply?.queries.map((query) => (
+                <details key={query.attachmentId}>
+                  <summary>
+                    SQL
+                    {query.rowCount > 0 &&
+                      ` · ${query.rowCount.toLocaleString()} rows`}
+                    {query.truncated && " · first 50 rows shown"}
+                  </summary>
+                  <pre>{query.sql}</pre>
+                  {query.columns.length > 0 && (
+                    <div className="table-scroll">
+                      <table>
+                        <thead>
+                          <tr>
+                            {query.columns.map((column) => (
+                              <th key={column}>{column}</th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {query.rows.map((row, r) => (
+                            <tr key={r}>
+                              {query.columns.map((column, c) => (
+                                <td key={column} title={String(row[c] ?? "")}>
+                                  {row[c] === null || row[c] === undefined
+                                    ? "—"
+                                    : String(row[c])}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </details>
+              ))}
+            </article>
+          ))}
+        </div>
+      )}
+      {error && <ErrorBox failure={error} retry={() => setError(undefined)} />}
+      {busy && (
+        <div role="status" className="loading">
+          <span className="spinner" />
+          Asking the Genie agent… this can take up to two minutes.
+        </div>
+      )}
+      <form
+        className="filter-row"
+        onSubmit={(event) => {
+          event.preventDefault();
+          void ask(draft.trim());
+        }}
+      >
+        <label className="filter wide">
+          <span>Question</span>
+          <textarea
+            aria-label="Question for the Genie agent"
+            value={draft}
+            rows={2}
+            onChange={(event) => setDraft(event.target.value)}
+            placeholder="e.g. What was the total paid spend by campaign last quarter?"
+            onKeyDown={(event) => {
+              if (event.key === "Enter" && !event.shiftKey) {
+                event.preventDefault();
+                void ask(draft.trim());
+              }
+            }}
+          />
+        </label>
+        <button type="submit" disabled={busy || !draft.trim()}>
+          Ask
+        </button>
+        {(conversationId || turns.length > 0) && (
+          <button
+            type="button"
+            onClick={() => {
+              setTurns([]);
+              setConversationId(undefined);
+              setError(undefined);
+            }}
+          >
+            New conversation
+          </button>
+        )}
+      </form>
+    </section>
+  );
+}
+
 export function Dashboard() {
   const [active, setActive] = useState("overview"),
     [filters, setFilters] = useState<Filters>({}),
@@ -371,7 +532,7 @@ export function Dashboard() {
   const queryString = query.toString();
   /* eslint-disable react-hooks/set-state-in-effect -- Synchronize abortable warehouse requests and their loading/error state. */
   useEffect(() => {
-    if (active === "schema") {
+    if (active === "schema" || active === "genie") {
       setLoading(false);
       return;
     }
@@ -547,6 +708,8 @@ export function Dashboard() {
           )}{" "}
           {active === "schema" ? (
             <Explorer />
+          ) : active === "genie" ? (
+            <GenieChat />
           ) : (
             <>
               {error && (
