@@ -1,13 +1,28 @@
-const contexts = new WeakMap<object, { stage: string; parameters: string[] }>();
+import {
+  operationFailure,
+  operationMessage,
+  warehouseFields,
+} from "./driver-error";
+const contexts = new WeakMap<
+  object,
+  {
+    stage: string;
+    parameters: string[];
+    operationId?: string;
+    sourceTables?: string[];
+  }
+>();
 
 export function recordFailure(
   error: unknown,
   stage: string,
   parameters: Record<string, unknown>,
+  query: { operationId?: string; sourceTables?: string[] } = {},
 ) {
   if (error && typeof error === "object")
     contexts.set(error, {
       stage,
+      ...query,
       parameters: Object.values(parameters).filter(
         (value): value is string =>
           typeof value === "string" && value.length > 3,
@@ -37,7 +52,15 @@ export function failureDetails(error: unknown) {
     ))
       text = text.split(value).join("[REDACTED]");
     return text
-      .replace(/Bearer\s+\S+/gi, "Bearer [REDACTED]")
+      .replace(/(?:Bearer|Basic)\s+\S+/gi, "[AUTHORIZATION REDACTED]")
+      .replace(
+        /\beyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\b/g,
+        "[TOKEN REDACTED]",
+      )
+      .replace(
+        /(?:access_token|refresh_token|client_secret|password)\s*[=:]\s*[^\s,;]+/gi,
+        "[SECRET REDACTED]",
+      )
       .replace(/https?:\/\/[^\s)]+/gi, "[URL]")
       .replace(
         /\b(?:SELECT|INSERT|UPDATE|DELETE|MERGE|WITH)\s[\s\S]*/gi,
@@ -47,6 +70,21 @@ export function failureDetails(error: unknown) {
   }
   return {
     stage: context?.stage ?? "api_handler",
+    ...warehouseFields(error),
+    ...(operationFailure(error) ? { failurePhase: "warehouse_query" } : {}),
+    ...(context?.operationId && /^[a-f0-9-]{32,36}$/i.test(context.operationId)
+      ? { operationId: context.operationId }
+      : {}),
+    ...(context?.sourceTables?.length
+      ? { sourceTables: context.sourceTables }
+      : {}),
+    // The full driver response and SQL are never logged. Strip quoted literals too.
+    warehouseMessage: operationMessage(error)
+      ? redact(operationMessage(error)!).replace(
+          /'(?:''|[^'])*'|"(?:""|[^"])*"/g,
+          "[QUOTED VALUE]",
+        )
+      : undefined,
     errorType:
       error instanceof Error
         ? error.name

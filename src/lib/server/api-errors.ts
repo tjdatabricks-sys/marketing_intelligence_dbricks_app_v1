@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { ConfigurationError } from "./config";
 import { WarehouseError } from "./warehouse";
 import { failureDetails } from "./error-context";
+import { operationFailure, warehouseFields } from "./driver-error";
 
 function driverDetails(error: unknown): string {
   // The SQL driver's StatusError is a plain object, not an Error subclass.
@@ -36,20 +37,16 @@ export function warehouseDiagnostic(error: unknown): {
 } {
   // Inspect driver details only for classification. Never return or log them:
   // driver messages can contain SQL text, values, URLs, or credentials.
-  const detail = driverDetails(error);
+  const fields = warehouseFields(error);
+  const detail =
+    driverDetails(error) +
+    " " +
+    [fields.sqlState, fields.warehouseErrorClass]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
   if (
-    /unauthorized|invalid_client|invalid client|invalid.*token|oauth|authentication|\b401\b|no_auth_configured|client_id_required|client_secret_required|token_request_failed/.test(
-      detail,
-    )
-  ) {
-    return {
-      code: "WAREHOUSE_AUTHENTICATION",
-      status: 503,
-      message:
-        "Databricks-managed authentication could not complete. The app uses the identity supplied by Databricks Apps automatically. No manual client ID, client secret or PAT configuration is required. Check the app runtime logs using this request ID.",
-    };
-  }
-  if (
+    fields.sqlState === "42501" ||
     /permission|insufficient_privilege|access.denied|not.authorized|forbidden|\b403\b|42501/.test(
       detail,
     )
@@ -103,6 +100,32 @@ export function warehouseDiagnostic(error: unknown): {
         "The SQL driver exhausted its connection or query retries. Check SQL warehouse availability and Query History, and verify the app can reach the workspace endpoint.",
     };
   }
+  if (
+    /unauthorized|invalid[_ ]client|invalid[_ ](?:access[_ ])?token|authenticationerror|authentication (?:has )?failed|oauth (?:authentication )?failed|\b401\b|no_auth_configured|client_id_required|client_secret_required|token_request_failed|\b28000\b/.test(
+      detail,
+    )
+  ) {
+    if (operationFailure(error))
+      return {
+        code: "WAREHOUSE_QUERY_ACCESS",
+        status: 503,
+        message:
+          "The warehouse accepted the SQL operation but reported an access or authentication failure during query execution. Check the warehouse error class, SQLSTATE and source-table access in Query History; app token setup is not the only possible cause.",
+      };
+    return {
+      code: "WAREHOUSE_AUTHENTICATION",
+      status: 503,
+      message:
+        "Databricks-managed authentication could not complete. The app uses the identity supplied by Databricks Apps automatically. No manual client ID, client secret or PAT configuration is required. Check the app runtime logs using this request ID.",
+    };
+  }
+  if (operationFailure(error))
+    return {
+      code: "WAREHOUSE_QUERY",
+      status: 503,
+      message:
+        "The SQL warehouse reported a failed query operation. Check warehouseErrorClass, sqlState, operationId and sourceTables; the app log contains a redacted warehouseMessage.",
+    };
   return {
     message:
       "Unable to query the warehouse. Check warehouse availability, schema compatibility, and app service principal permissions.",
@@ -141,17 +164,21 @@ export function withApiErrors(
           id,
           code,
           message,
-          diagnosticsVersion: 3,
+          diagnosticsVersion: 4,
           ...details,
         }),
       );
-      const { stackFrames: _frames, ...publicDetails } = details;
+      const {
+        stackFrames: _frames,
+        warehouseMessage: _warehouseMessage,
+        ...publicDetails
+      } = details;
       return NextResponse.json(
         {
           error: message,
           code,
           requestId: id,
-          diagnosticsVersion: 3,
+          diagnosticsVersion: 4,
           ...publicDetails,
         },
         { status, headers: { "Cache-Control": "no-store" } },

@@ -19,7 +19,7 @@ test("runtime diagnostics expose the failure stage and redact credentials, SQL a
     })(new Request("http://localhost/api/ready"));
     const body = await response.json();
     assert.equal(body.code, "WAREHOUSE_RUNTIME");
-    assert.equal(body.diagnosticsVersion, 3);
+    assert.equal(body.diagnosticsVersion, 4);
     assert.equal(body.stage, "fetch_results");
     assert.match(body.runtimeMessage, /Cannot read properties/);
     assert.equal(body.stackFrames, undefined);

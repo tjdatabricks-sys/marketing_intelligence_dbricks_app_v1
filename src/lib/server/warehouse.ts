@@ -6,6 +6,7 @@ import { connectionSettings, positiveInteger } from "./config";
 import { managedAuthentication } from "./databricks-auth";
 import type { Statement } from "./sql";
 import { recordFailure } from "./error-context";
+import { TABLES } from "./schema";
 
 export class WarehouseError extends Error {
   constructor(
@@ -134,7 +135,16 @@ export function createSqlExecutor(
         });
         return await Promise.race([work, timeout]);
       } catch (error) {
-        recordFailure(error, stage, statement.parameters);
+        recordFailure(error, stage, statement.parameters, {
+          operationId: operation?.id,
+          sourceTables: [
+            ...new Set(
+              [...statement.sql.matchAll(/`((?:dim|fact)_[a-z0-9_]+)`/g)]
+                .map((match) => match[1])
+                .filter((name) => TABLES.includes(name)),
+            ),
+          ],
+        });
         throw error;
       } finally {
         if (timer) clearTimeout(timer);
