@@ -28,20 +28,21 @@ export async function loadCatalog(): Promise<Catalog> {
     execute(
       `SELECT f.platform_id AS id, COALESCE(p.label,f.platform_id) AS label FROM (SELECT DISTINCT platform_id FROM ${t("fact_paid_ad_daily")} WHERE platform_id IS NOT NULL) f LEFT JOIN (SELECT platform_id, CASE WHEN COUNT(DISTINCT platform_name)=1 THEN MAX(platform_name) ELSE platform_id END AS label FROM ${t("dim_platform")} GROUP BY platform_id) p ON p.platform_id=f.platform_id ORDER BY label`,
     ),
+    // DISTINCT queries resolve ORDER BY against output aliases only, so order by `label`, not the source column.
     execute(
-      `SELECT DISTINCT market AS id,market AS label FROM ${t("dim_geography")} WHERE market IS NOT NULL AND TRIM(market)<>'' ORDER BY market`,
+      `SELECT DISTINCT market AS id,market AS label FROM ${t("dim_geography")} WHERE market IS NOT NULL AND TRIM(market)<>'' ORDER BY label`,
     ),
     execute(
       `SELECT product_id AS id,CASE WHEN COUNT(DISTINCT product_name)=1 THEN MAX(product_name) ELSE product_id END AS label FROM ${t("dim_product")} GROUP BY product_id ORDER BY label`,
     ),
     execute(
-      `SELECT DISTINCT customer_segment AS id,customer_segment AS label FROM ${t("dim_customer")} WHERE customer_segment IS NOT NULL AND TRIM(customer_segment)<>'' ORDER BY customer_segment`,
+      `SELECT DISTINCT customer_segment AS id,customer_segment AS label FROM ${t("dim_customer")} WHERE customer_segment IS NOT NULL AND TRIM(customer_segment)<>'' ORDER BY label`,
     ),
     execute(
       `SELECT DISTINCT attribution_model AS model,attribution_model_version AS version FROM (SELECT attribution_model,attribution_model_version FROM ${t("fact_funded_attribution_allocation")} UNION ALL SELECT attribution_model,attribution_model_version FROM ${t("fact_attributed_contribution_monthly")}) a WHERE attribution_model IS NOT NULL AND attribution_model_version IS NOT NULL ORDER BY model,version`,
     ),
     execute(
-      `SELECT DISTINCT budget_version AS id,budget_version AS label FROM ${t("fact_campaign_budget_monthly")} WHERE budget_version IS NOT NULL ORDER BY budget_version`,
+      `SELECT DISTINCT budget_version AS id,budget_version AS label FROM ${t("fact_campaign_budget_monthly")} WHERE budget_version IS NOT NULL ORDER BY label`,
     ),
     execute(
       `SELECT MIN(first_date) AS first_date,MAX(last_date) AS last_date FROM (${Object.entries(
