@@ -31,12 +31,18 @@ async function get<T>(url: string, signal: AbortSignal): Promise<T> {
   if (!response.ok) throw data;
   return data;
 }
+// Compact notation keeps large values readable: 12,300 -> 12.3K, 1.2M, $45.6K.
+const compact = new Intl.NumberFormat("en-US", {
+  notation: "compact",
+  maximumFractionDigits: 2,
+});
 const format = (value: unknown, kind?: string) => {
   if (value === null || value === undefined) return "—";
   if (kind === "money")
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
+      notation: "compact",
       maximumFractionDigits: 2,
     }).format(Number(value));
   if (kind === "percent")
@@ -44,10 +50,7 @@ const format = (value: unknown, kind?: string) => {
       style: "percent",
       maximumFractionDigits: 2,
     }).format(Number(value));
-  if (kind === "number")
-    return new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
-      Number(value),
-    );
+  if (kind === "number") return compact.format(Number(value));
   return String(value);
 };
 function ErrorBox({ failure, retry }: { failure: Failure; retry: () => void }) {
@@ -583,7 +586,7 @@ export function Dashboard() {
                         >
                           <ResponsiveContainer width="100%" height="100%">
                             <BarChart
-                              data={chart.rows}
+n                              data={chart.rows}
                               margin={{
                                 top: 12,
                                 right: 12,
@@ -602,7 +605,12 @@ export function Dashboard() {
                                 angle={-20}
                                 textAnchor="end"
                               />
-                              <YAxis tick={{ fontSize: 11 }} />
+                              <YAxis
+                                tick={{ fontSize: 11 }}
+                                tickFormatter={(value) =>
+                                  compact.format(Number(value))
+                                }
+                              />
                               <Tooltip
                                 formatter={(value) =>
                                   format(value, chart.format)
