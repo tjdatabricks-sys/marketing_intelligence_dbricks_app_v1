@@ -22,8 +22,11 @@ export async function loadCatalog(): Promise<Catalog> {
     budgets,
     dates,
   ] = await Promise.all([
+    // Campaign names carry trailing variant numbers ("Always On Acquisition 05",
+    // "... 24", "... 28"); strip them so each base campaign appears once and
+    // selecting it matches every numbered variant.
     execute(
-      `SELECT campaign_id AS id, CASE WHEN COUNT(DISTINCT campaign_name)=1 THEN MAX(campaign_name) ELSE campaign_id END AS label FROM ${t("dim_campaign")} GROUP BY campaign_id ORDER BY label`,
+      `SELECT REGEXP_REPLACE(campaign_name,' +[0-9]+$','') AS id,REGEXP_REPLACE(campaign_name,' +[0-9]+$','') AS label FROM ${t("dim_campaign")} WHERE campaign_name IS NOT NULL AND TRIM(campaign_name)<>'' GROUP BY 1 ORDER BY label`,
     ),
     execute(
       `SELECT f.platform_id AS id, COALESCE(p.label,f.platform_id) AS label FROM (SELECT DISTINCT platform_id FROM ${t("fact_paid_ad_daily")} WHERE platform_id IS NOT NULL) f LEFT JOIN (SELECT platform_id, CASE WHEN COUNT(DISTINCT platform_name)=1 THEN MAX(platform_name) ELSE platform_id END AS label FROM ${t("dim_platform")} GROUP BY platform_id) p ON p.platform_id=f.platform_id ORDER BY label`,

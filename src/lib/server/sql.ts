@@ -148,12 +148,17 @@ export function where(
       return `EXISTS (SELECT 1 FROM ${t("fact_vendor_invoice_line")} il JOIN ${t("dim_campaign")} dc ON dc.campaign_id=il.campaign_id WHERE il.invoice_id=${field("invoice_id")} AND ${predicate("dc")})`;
     return "FALSE";
   };
-  if (f.campaign)
+  if (f.campaign) {
+    // Campaign filter values are base campaign names with trailing variant
+    // numbers stripped ("Always On Acquisition" covers 05, 24 and 28), so
+    // match through dim_campaign instead of exact campaign_id equality.
+    const cohort = `SELECT campaign_id FROM ${t("dim_campaign")} WHERE REGEXP_REPLACE(campaign_name,' +[0-9]+$','')=${b.add(f.campaign)}`;
     parts.push(
       campaign
-        ? `${campaign}=${b.add(f.campaign)}`
-        : viaCampaign((a) => `${a}.campaign_id=${b.add(f.campaign!)}`),
+        ? `${campaign} IN (${cohort})`
+        : viaCampaign((a) => `${a}.campaign_id IN (${cohort})`),
     );
+  }
   if (f.platform) {
     if (has("platform_id"))
       parts.push(`${field("platform_id")}=${b.add(f.platform)}`);
