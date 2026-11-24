@@ -586,7 +586,7 @@ export function Dashboard() {
                         >
                           <ResponsiveContainer width="100%" height="100%">
                             <BarChart
-n                              data={chart.rows}
+                              data={chart.rows}
                               margin={{
                                 top: 12,
                                 right: 12,
