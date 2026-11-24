@@ -3,9 +3,9 @@ env:
   - name: DATABRICKS_WAREHOUSE_ID
     valueFrom: sql-warehouse
   - name: DATABRICKS_CATALOG
-    value: "<your-catalog>"
+    value: "media-poc"
   - name: DATABRICKS_SCHEMA
-    value: "<your-schema>"
+    value: "gold_business"
   - name: NEXT_TELEMETRY_DISABLED
     value: "1"
   - name: DATABRICKS_QUERY_CONCURRENCY
