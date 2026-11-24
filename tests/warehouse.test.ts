@@ -80,8 +80,14 @@ test("OAuth configuration supports Azure, binds values, reuses connections and b
   assert.equal(fake.calls.connect, 1);
   assert.equal(fake.calls.maxActive, 1);
   assert.equal(fake.calls.closed, 3);
-  assert.equal(fake.calls.connectionOptions.authType, "databricks-oauth");
-  assert.equal(fake.calls.connectionOptions.useDatabricksOAuthInAzure, true);
+  assert.equal(fake.calls.connectionOptions.authType, "custom");
+  assert.equal(
+    typeof (fake.calls.connectionOptions.provider as { authenticate: unknown })
+      .authenticate,
+    "function",
+  );
+  assert.equal(fake.calls.connectionOptions.oauthClientSecret, undefined);
+  assert.equal(fake.calls.connectionOptions.token, undefined);
   assert.equal(fake.calls.connectionOptions.preserveBigNumericPrecision, true);
   assert.deepEqual(
     fake.calls.statementOptions.namedParameters,

@@ -2,7 +2,8 @@ import { DBSQLClient } from "@databricks/sql";
 import type IDBSQLClient from "@databricks/sql/dist/contracts/IDBSQLClient";
 import type IDBSQLSession from "@databricks/sql/dist/contracts/IDBSQLSession";
 import type IOperation from "@databricks/sql/dist/contracts/IOperation";
-import { connectionSettings, positiveInteger, required } from "./config";
+import { connectionSettings, positiveInteger } from "./config";
+import { managedAuthentication } from "./databricks-auth";
 import type { Statement } from "./sql";
 import { recordFailure } from "./error-context";
 
@@ -51,17 +52,11 @@ export function createSqlExecutor(
         socketTimeout:
           positiveInteger("DATABRICKS_QUERY_TIMEOUT_SECONDS", 120, 600) * 1000,
       };
-      const token = process.env.DATABRICKS_TOKEN;
-      const options =
-        token && !process.env.DATABRICKS_APP_NAME
-          ? { ...settings, token }
-          : {
-              ...settings,
-              authType: "databricks-oauth" as const,
-              useDatabricksOAuthInAzure: true,
-              oauthClientId: required("DATABRICKS_CLIENT_ID"),
-              oauthClientSecret: required("DATABRICKS_CLIENT_SECRET"),
-            };
+      const options = {
+        ...settings,
+        authType: "custom" as const,
+        provider: managedAuthentication(settings.host),
+      };
       connection = client.connect(options).catch(async (error) => {
         connection = undefined;
         try {

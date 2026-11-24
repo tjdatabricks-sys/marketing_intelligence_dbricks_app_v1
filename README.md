@@ -1,6 +1,6 @@
 # Marketing Intelligence for Databricks Apps
 
-Rebuilt around **Market_POC_Schema_Exploration (5).csv**: **47 gold tables, 735 columns**, preserving the supplied table names, column names and declared types. The source CSV and machine-readable contract are in `data/`. This is a read-only Next.js application using the Databricks SQL driver and the app's OAuth service principal. No Z.ai runtime, API, generated data or credentials are required.
+Rebuilt around **Market_POC_Schema_Exploration (5).csv**: **47 gold tables, 735 columns**, preserving the supplied table names, column names and declared types. The source CSV and machine-readable contract are in `data/`. Authentication is resolved automatically by the official `@databricks/sdk-auth` credential provider, using the identity supplied by Databricks Apps. The app does not ask users to create or enter client IDs, client secrets or PATs. This is a read-only Next.js application using the Databricks SQL driver and the app's OAuth service principal. No Z.ai runtime, API, generated data or credentials are required.
 
 The dashboard provides 15 views: Control Tower, Campaign Performance, Paid Media, Organic Social, Reach & Frequency, Acquisition Funnel, Customers & Products, Revenue & Attribution, Invoice & GL, Budgets & Targets, Mail/OOH/TV, Web & Email, Experiments, Schema & Source Data, and Data Quality & Lineage.
 
@@ -10,7 +10,7 @@ The prior preferences remain: the platform selector is sourced only from paid-ad
 
 1. In Databricks Apps, create or configure the app. Select this repository and branch `codex/rebuild-gold-schema`, with the repository root as the source directory. A private repository requires a Git credential for the **app service principal**. Alternatively upload the source ZIP contents into a workspace folder.
 2. Add a SQL warehouse resource with key **`sql-warehouse`** and **Can use** permission.
-3. In `app.yaml`, replace `<your-catalog>` and `<your-schema>` with the location containing all 47 supplied tables. The app binds the warehouse resource to `DATABRICKS_WAREHOUSE_ID` automatically. Keep workspace-injected `DATABRICKS_HOST`, `DATABRICKS_CLIENT_ID`, and `DATABRICKS_CLIENT_SECRET`; do not override the host with `sql-warehouse` or the app URL.
+3. In `app.yaml`, replace `<your-catalog>` and `<your-schema>` with the location containing all 47 supplied tables. The app binds the warehouse resource to `DATABRICKS_WAREHOUSE_ID` automatically. Databricks supplies workspace host and app identity automatically; no authentication entries need to be added to `app.yaml`.
 4. Grant the app service principal `USE CATALOG`, `USE SCHEMA`, and `SELECT` on the 47 tables. Granting your developer account access does not grant the app access. `information_schema.columns` must expose the tables to that principal. An authorized administrator can replace the three placeholders in **`scripts/grants.sql`** and run it; the file already includes grants for every required table. For example:
 
    ```sql
@@ -41,7 +41,8 @@ Official deployment and resource references: [Databricks app deployment](https:/
 
 ```sh
 npm ci
-# Copy .env.example to .env.local and configure the warehouse plus OAuth.
+# Copy .env.example to .env.local and configure warehouse/catalog/schema.
+# Local development uses the Databricks SDK credential chain / CLI profile.
 npm run dev
 ```
 
@@ -69,3 +70,7 @@ Packaging creates `dist/marketing-intelligence-databricks.zip` containing deploy
 API errors include a request ID and safe diagnostics. Use that request ID in app logs and the app principal's warehouse Query History. Authentication, permission, schema, SQL and networking errors have separate codes. Client responses and logs do not intentionally include credentials or raw driver SQL. Catalog options are cached for 60 seconds; report results are not cached. Query concurrency defaults to four, with isolated sessions, a bounded queue and a configurable execution deadline.
 
 The warehouse binding, catalog/schema placeholders, principal grants and deployment are environment-owned configuration. This repository does not create, load or alter the source tables.
+
+## Managed authentication implementation
+
+`databricks-auth.ts` adapts the official Databricks SDK credential provider to the SQL driver. The SDK handles OAuth endpoint discovery, token caching and refresh. Inside Databricks Apps, it reads the injected identity, ignores local profile files and forces app OAuth instead of accepting a stray PAT. Local development uses the standard SDK credential chain. This replaces the SQL driver's cloud-domain-based OAuth adapter, which has its own endpoint and hostname detection. This change does not assert the cause of a particular deployed failure or grant Unity Catalog permissions. Runtime access remains managed by the Databricks app resource and permission configuration.

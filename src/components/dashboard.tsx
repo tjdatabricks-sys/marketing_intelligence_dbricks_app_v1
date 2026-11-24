@@ -536,7 +536,7 @@ export function Dashboard() {
               </p>
             </section>
           )}
-          {catalogError && active !== "schema" && (
+          {catalogError && !error && active !== "schema" && (
             <ErrorBox
               failure={catalogError}
               retry={() => setRetry(retry + 1)}

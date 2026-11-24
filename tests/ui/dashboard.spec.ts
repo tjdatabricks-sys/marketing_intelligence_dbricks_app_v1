@@ -198,3 +198,31 @@ test("mobile navigation and filter layout remain usable", async ({ page }) => {
     await page.evaluate(() => document.documentElement.scrollWidth),
   ).toBeLessThanOrEqual(391);
 });
+
+test("one managed-authentication failure is shown when both report and catalog fail", async ({
+  page,
+}) => {
+  const failure = {
+    error: "Databricks-managed authentication could not complete.",
+    code: "WAREHOUSE_AUTHENTICATION",
+  };
+  await page.route("**/api/catalog", (route) =>
+    route.fulfill({ status: 503, json: failure }),
+  );
+  await page.route("**/api/reports?*", (route) =>
+    route.fulfill({ status: 503, json: failure }),
+  );
+  await Promise.all([
+    page.waitForResponse(
+      (response) => new URL(response.url()).pathname === "/api/catalog",
+    ),
+    page.waitForResponse(
+      (response) => new URL(response.url()).pathname === "/api/reports",
+    ),
+    page.goto("/"),
+  ]);
+  await expect(page.locator("main").getByRole("alert")).toHaveCount(1);
+  await expect(page.locator("main").getByRole("alert")).toContainText(
+    "Databricks-managed authentication",
+  );
+});

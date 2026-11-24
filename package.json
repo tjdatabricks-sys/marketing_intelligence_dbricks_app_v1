@@ -16,6 +16,8 @@
     "format:check": "prettier --check src tests scripts *.ts *.mjs *.md *.json app.yaml"
   },
   "dependencies": {
+    "@databricks/sdk-auth": "^0.55.0",
+    "@databricks/sdk-core": "^0.51.2",
     "@databricks/sql": "^1.17.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^22",

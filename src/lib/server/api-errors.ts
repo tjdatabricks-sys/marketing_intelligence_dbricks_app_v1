@@ -16,6 +16,7 @@ function driverDetails(error: unknown): string {
     const record = value as Record<string, unknown>;
     return [
       "name",
+      "code",
       "message",
       "errorMessage",
       "sqlState",
@@ -37,7 +38,7 @@ export function warehouseDiagnostic(error: unknown): {
   // driver messages can contain SQL text, values, URLs, or credentials.
   const detail = driverDetails(error);
   if (
-    /unauthorized|invalid_client|invalid client|invalid.*token|oauth|authentication|\b401\b/.test(
+    /unauthorized|invalid_client|invalid client|invalid.*token|oauth|authentication|\b401\b|no_auth_configured|client_id_required|client_secret_required|token_request_failed/.test(
       detail,
     )
   ) {
@@ -45,7 +46,7 @@ export function warehouseDiagnostic(error: unknown): {
       code: "WAREHOUSE_AUTHENTICATION",
       status: 503,
       message:
-        "Databricks OAuth authentication failed. Verify the app service principal credentials are injected by Databricks Apps. Do not use local PAT credentials in the deployed app.",
+        "Databricks-managed authentication could not complete. The app uses the identity supplied by Databricks Apps automatically. No manual client ID, client secret or PAT configuration is required. Check the app runtime logs using this request ID.",
     };
   }
   if (
