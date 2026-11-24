@@ -381,7 +381,7 @@ function GenieChat() {
         <div className="chat-turns">
           {turns.map((turn, i) => (
             <article
-n              className={turn.role === "user" ? "chat-user" : "chat-genie"}
+              className={turn.role === "user" ? "chat-user" : "chat-genie"}
               key={i}
             >
               <b>{turn.role === "user" ? "You" : "Genie"}</b>
