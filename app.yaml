@@ -1,0 +1,14 @@
+command: ["npm", "run", "start"]
+env:
+  - name: DATABRICKS_WAREHOUSE_ID
+    valueFrom: sql-warehouse
+  - name: DATABRICKS_CATALOG
+    value: "<your-catalog>"
+  - name: DATABRICKS_SCHEMA
+    value: "<your-schema>"
+  - name: NEXT_TELEMETRY_DISABLED
+    value: "1"
+  - name: DATABRICKS_QUERY_CONCURRENCY
+    value: "4"
+  - name: DATABRICKS_QUERY_TIMEOUT_SECONDS
+    value: "120"

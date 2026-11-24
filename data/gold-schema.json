@@ -1,0 +1,3677 @@
+[
+  {
+    "table_name": "dim_ad",
+    "column_name": "ad_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "ad_group_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "platform_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "creative_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "format_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "source_ad_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "ad_status",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "distribution_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "social_account_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "format_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "format_name",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "media_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "destination_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "format_family",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "is_video_format",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "observed_paid_platform_ids",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "observed_organic_platform_ids",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "eligibility_policy",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad_format",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "ad_group_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "platform_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "audience_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "geo_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "placement_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "bid_strategy",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_ad_group",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "audience_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "audience_name",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "audience_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "consent_required",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_audience",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "campaign_name",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "objective",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "product_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "geo_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "start_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "end_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "status",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_campaign",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "channel_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "channel_name",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "channel_group",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_channel",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "platform_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "format_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "ad_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "social_account_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "distribution_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "platform_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "post_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "content_source",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_content",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "creative_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "asset_name",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "format_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "headline",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "asset_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "approval_status",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_creative",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "customer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "customer_segment",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "geo_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "age_band",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "created_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_customer",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "date_key",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "calendar_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "year",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "quarter",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "month",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "month_start",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "week_start",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "day_of_week",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_date",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_device",
+    "column_name": "device_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_device",
+    "column_name": "device_name",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_device",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_device",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_device",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_device",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "geo_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "city",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "state",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "country",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "market",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_geography",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "placement_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "placement_name",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "inventory_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_placement",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "platform_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "platform_name",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "source_system",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "channel_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "currency",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "supports_paid",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "supports_organic_social",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "social_account_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "social_account_pk_scope",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "social_account_status",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "canonical_social_account_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_platform",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "platform_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "platform_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "source_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "campaign_objective",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "start_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "end_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "currency",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "distribution_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_platform_campaign",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "product_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "product_name",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "product_category",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_product",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_social_account",
+    "column_name": "social_account_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_social_account",
+    "column_name": "platform_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_social_account",
+    "column_name": "social_account_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_social_account",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_social_account",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_social_account",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_social_account",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "vendor_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "vendor_name",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "vendor_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_ingestion_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_ingestion_batch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_source_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_source_file",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_record_hash",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_dq_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_dq_checked_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_silver_run_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_silver_processed_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_silver_source_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "dim_vendor",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_application",
+    "column_name": "application_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_application",
+    "column_name": "lead_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_application",
+    "column_name": "customer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_application",
+    "column_name": "product_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_application",
+    "column_name": "submission_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_application",
+    "column_name": "decision_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_application",
+    "column_name": "application_status",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_application",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_application",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_application",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "attributed_value_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "relationship_value_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "account_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "report_month",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "attribution_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "touch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "attribution_model",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "attribution_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "attribution_weight",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "distribution_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "attributed_contribution_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "attributed_interest_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "attributed_fee_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "date_key",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_attributed_contribution_monthly",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_campaign_budget_monthly",
+    "column_name": "budget_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_campaign_budget_monthly",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_campaign_budget_monthly",
+    "column_name": "budget_month",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_campaign_budget_monthly",
+    "column_name": "allocated_budget_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_campaign_budget_monthly",
+    "column_name": "budget_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_campaign_budget_monthly",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_campaign_budget_monthly",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_campaign_budget_monthly",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "month",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "paid_spend_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "paid_impressions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "paid_clicks",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "new_leads",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "organic_impressions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "organic_engagements",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "attributed_funded_account_credits",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "attributed_contribution_earned_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "campaign_month_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "attribution_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "date_key",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_campaign_monthly_scorecard",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_direct_mail",
+    "column_name": "mailer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_direct_mail",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_direct_mail",
+    "column_name": "customer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_direct_mail",
+    "column_name": "dispatch_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_direct_mail",
+    "column_name": "delivery_status",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_direct_mail",
+    "column_name": "unit_cost_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_direct_mail",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_direct_mail",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_direct_mail",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "email_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "email_parent_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "send_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "messages_sent",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "is_delivered",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "opened",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "clicked",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "bounced",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "unsubscribed",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "email_day_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "unique_click_rate",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_email_send_cohort_daily",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_experiment_variant_assignment_cohort",
+    "column_name": "experiment_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_experiment_variant_assignment_cohort",
+    "column_name": "variant_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_experiment_variant_assignment_cohort",
+    "column_name": "assignment_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_experiment_variant_assignment_cohort",
+    "column_name": "assigned_subjects",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_experiment_variant_assignment_cohort",
+    "column_name": "outcome_events",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_experiment_variant_assignment_cohort",
+    "column_name": "subjects_with_outcome",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_experiment_variant_assignment_cohort",
+    "column_name": "experiment_variant_day_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_experiment_variant_assignment_cohort",
+    "column_name": "observed_outcome_rate",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_experiment_variant_assignment_cohort",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_experiment_variant_assignment_cohort",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_finance_gl_posting",
+    "column_name": "gl_posting_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_finance_gl_posting",
+    "column_name": "invoice_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_finance_gl_posting",
+    "column_name": "posting_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_finance_gl_posting",
+    "column_name": "gl_account_code",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_finance_gl_posting",
+    "column_name": "debit_amount_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_finance_gl_posting",
+    "column_name": "credit_amount_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_finance_gl_posting",
+    "column_name": "invoice_vendor_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_finance_gl_posting",
+    "column_name": "invoice_billing_month",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_finance_gl_posting",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_finance_gl_posting",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_finance_gl_posting",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_account",
+    "column_name": "account_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_account",
+    "column_name": "application_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_account",
+    "column_name": "customer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_account",
+    "column_name": "product_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_account",
+    "column_name": "open_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_funded_account",
+    "column_name": "funding_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_funded_account",
+    "column_name": "funded_flag",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_account",
+    "column_name": "account_status",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_account",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_account",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_funded_account",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "attribution_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "account_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "lead_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "touch_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "attribution_model",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "attribution_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "attribution_weight",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "attributed_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "distribution_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "attribution_evidence",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_funded_attribution_allocation",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funding_event",
+    "column_name": "funding_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funding_event",
+    "column_name": "account_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funding_event",
+    "column_name": "funding_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_funding_event",
+    "column_name": "funding_amount_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_funding_event",
+    "column_name": "funding_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funding_event",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_funding_event",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_funding_event",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "lead_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "submission_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "customer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "created_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "lead_status",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "lead_score",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "product_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "geo_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "acquisition_distribution_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "source_content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_lead",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "lead_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "customer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "product_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "geo_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "created_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "lead_status",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "acquisition_distribution_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "source_content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "application_count",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "approved_application_count",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "funded_account_count",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "first_application_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "first_funding_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "lead_date_key",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "first_funding_date_key",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_lead_funnel_snapshot",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "submission_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "submission_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "customer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "ad_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "post_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "distribution_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "form_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "source_evidence_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_marketing_submission",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_offline_response",
+    "column_name": "offline_response_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_offline_response",
+    "column_name": "mailer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_offline_response",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_offline_response",
+    "column_name": "customer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_offline_response",
+    "column_name": "response_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_offline_response",
+    "column_name": "response_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_offline_response",
+    "column_name": "mailer_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_offline_response",
+    "column_name": "mailer_customer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_offline_response",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_offline_response",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_offline_response",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_ooh_delivery_monthly",
+    "column_name": "ooh_delivery_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_ooh_delivery_monthly",
+    "column_name": "ooh_placement_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_ooh_delivery_monthly",
+    "column_name": "report_month",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_ooh_delivery_monthly",
+    "column_name": "play_count",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_ooh_delivery_monthly",
+    "column_name": "estimated_impressions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_ooh_delivery_monthly",
+    "column_name": "measurement_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_ooh_delivery_monthly",
+    "column_name": "ooh_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_ooh_delivery_monthly",
+    "column_name": "ooh_geo_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_ooh_delivery_monthly",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_ooh_delivery_monthly",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_ooh_delivery_monthly",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "platform_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "format_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "report_month",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "impressions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "reactions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "comments",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "shares",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "saves",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "link_clicks",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "video_views",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "engagements",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "organic_month_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "engagement_rate_impressions",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_organic_platform_monthly",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "post_metric_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "post_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "report_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "date_key",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "platform_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "format_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "social_account_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "impressions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "reactions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "comments",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "shares",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "saves",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "link_clicks",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "video_views",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "unique_reach_estimated",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "reach_scope",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "distribution_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "engagements",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "engagement_rate_impressions",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_organic_post_daily",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "ad_performance_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "report_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "date_key",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "ad_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "ad_group_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "platform_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "platform_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "format_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "audience_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "geo_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "placement_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "impressions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "clicks",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "engagements",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "platform_conversions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "video_views",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "spend_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "distribution_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "ctr",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "cpc_usd",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_paid_ad_daily",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "ad_performance_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "report_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "date_key",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "platform_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "ad_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "format_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "link_clicks",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "reactions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "comments",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "shares",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "saves",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "total_engagements",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "video_starts",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "video_25pct",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "video_50pct",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "video_75pct",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "video_completions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "video_completion_rate",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_paid_ad_engagement_daily",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "campaign_performance_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "report_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "date_key",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "platform_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "platform_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "impressions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "clicks",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "engagements",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "platform_conversions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "video_views",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "spend_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "distribution_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "ctr",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "cpc_usd",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "cpm_usd",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_paid_campaign_daily",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "platform_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "platform_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "report_month",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "spend_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "impressions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "clicks",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "engagements",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "platform_conversions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "campaign_month_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "date_key",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "_model_load_ts",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "_model_version",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "ctr",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "cpc_usd",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "cpm_usd",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_paid_campaign_monthly",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "reach_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "ad_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "platform_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "window_start",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "window_end",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "window_impressions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "unique_reach",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "avg_frequency",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "reach_scope",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "deduplication_method",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "content_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_paid_reach_window",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "relationship_value_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "account_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "customer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "report_month",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "interest_income_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "fee_income_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "servicing_cost_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "net_contribution_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "value_type",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_relationship_value_monthly",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_sales_target_monthly",
+    "column_name": "target_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_sales_target_monthly",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_sales_target_monthly",
+    "column_name": "product_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_sales_target_monthly",
+    "column_name": "geo_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_sales_target_monthly",
+    "column_name": "target_month",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_sales_target_monthly",
+    "column_name": "lead_target",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_sales_target_monthly",
+    "column_name": "funded_account_target",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_sales_target_monthly",
+    "column_name": "revenue_target_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_sales_target_monthly",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_sales_target_monthly",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_sales_target_monthly",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_tv_spot",
+    "column_name": "tv_spot_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_tv_spot",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_tv_spot",
+    "column_name": "air_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_tv_spot",
+    "column_name": "station",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_tv_spot",
+    "column_name": "estimated_audience",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_tv_spot",
+    "column_name": "spot_cost_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_tv_spot",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_tv_spot",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_tv_spot",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "invoice_line_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "invoice_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "platform_campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "media_spend_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "agency_fee_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "line_total_usd",
+    "data_type": "DECIMAL"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "invoice_vendor_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "invoice_billing_month",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_vendor_invoice_line",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "session_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "session_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "date_key",
+    "data_type": "INT"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "customer_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "landing_page_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "device_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "source_medium",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "engaged_flag",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "data_mode",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_web_session",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session_daily",
+    "column_name": "session_date",
+    "data_type": "DATE"
+  },
+  {
+    "table_name": "fact_web_session_daily",
+    "column_name": "campaign_id",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session_daily",
+    "column_name": "device_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session_daily",
+    "column_name": "source_medium",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session_daily",
+    "column_name": "sessions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_web_session_daily",
+    "column_name": "engaged_sessions",
+    "data_type": "LONG"
+  },
+  {
+    "table_name": "fact_web_session_daily",
+    "column_name": "session_day_key",
+    "data_type": "STRING"
+  },
+  {
+    "table_name": "fact_web_session_daily",
+    "column_name": "engaged_session_rate",
+    "data_type": "DOUBLE"
+  },
+  {
+    "table_name": "fact_web_session_daily",
+    "column_name": "_gold_loaded_at",
+    "data_type": "TIMESTAMP"
+  },
+  {
+    "table_name": "fact_web_session_daily",
+    "column_name": "_gold_release",
+    "data_type": "STRING"
+  }
+]
