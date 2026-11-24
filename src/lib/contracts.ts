@@ -176,12 +176,12 @@ export const REPORTS: ReportDefinition[] = [
     note: "Web daily and raw session facts are separate grains. Email outcomes retain send-cohort meaning; parent-campaign links are used for campaign filters.",
   },
   {
-    id: "experiments",
-    title: "Experiments",
+    id: "genie",
+    title: "Ask Genie",
     group: "Engagement",
-    description: "Observed assignment-cohort outcomes",
-    filters: ["from", "to"],
-    note: "The supplied schema has no control/treatment definitions or hypotheses. Observed cohort rates are shown; uplift and statistical significance are not inferred.",
+    description: "Ask the Marketing Genie agent about this data",
+    filters: [],
+    note: "Answers come from the Marketing Data Warehouse Overview and Insights agent over the same 47-table gold schema. Follow-ups stay in one conversation.",
   },
   {
     id: "schema",
