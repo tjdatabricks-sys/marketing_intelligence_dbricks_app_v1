@@ -406,24 +406,40 @@ function GenieChart({ query }: { query: GenieQueryResultData }) {
     value !== "" &&
     !Number.isNaN(Number(value));
   let valueIndex = -1;
-  let labelIndex = -1;
+  const labelIndexes: number[] = [];
   for (let c = 0; c < query.columns.length; c++) {
     const ratio = rows.filter((row) => numeric(row[c])).length / rows.length;
     if (ratio >= 0.8) {
       if (valueIndex < 0) valueIndex = c;
-    } else if (labelIndex < 0) labelIndex = c;
+    } else labelIndexes.push(c);
   }
-  if (valueIndex < 0 || labelIndex < 0) return null;
-  const data = rows.slice(0, 12).map((row, i) => ({
-    name: String(row[labelIndex] ?? "").slice(0, 18) || `#${i + 1}`,
-    value: Number(row[valueIndex]),
-  }));
+  if (valueIndex < 0 || labelIndexes.length === 0) return null;
+  // Prefer descriptive name columns (campaign_name, platform_name) over ID
+  // columns, so chart labels read like "Campaign · Platform" instead of
+  // CMP0026. Falls back to the first text column found.
+  const nameIndexes = labelIndexes.filter((c) =>
+    /(^|_)name$/i.test(query.columns[c].trim()),
+  );
+  const chosen = (nameIndexes.length > 0 ? nameIndexes : labelIndexes).slice(
+    0,
+    2,
+  );
+  const data = rows.slice(0, 12).map((row, i) => {
+    const label = chosen
+      .map((c) => String(row[c] ?? "").trim())
+      .filter(Boolean)
+      .join(" · ")
+      .slice(0, 28);
+    return { name: label || `#${i + 1}`, value: Number(row[valueIndex]) };
+  });
   if (data.every((item) => Number.isNaN(item.value))) return null;
   return (
     <div
       className="genie-chart"
       role="img"
-      aria-label={`${query.columns[valueIndex]} by ${query.columns[labelIndex]} chart`}
+      aria-label={`${query.columns[valueIndex]} by ${chosen
+        .map((c) => query.columns[c])
+        .join(" · ")} chart`}
     >
       <ResponsiveContainer width="100%" height={210}>
         <BarChart data={data} margin={{ top: 8, right: 12, left: 0, bottom: 4 }}>
@@ -434,7 +450,7 @@ function GenieChart({ query }: { query: GenieQueryResultData }) {
             interval={0}
             angle={-25}
             textAnchor="end"
-            height={56}
+            height={62}
           />
           <YAxis
             tick={{ fontSize: 10 }}
