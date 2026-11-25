@@ -29,8 +29,9 @@ const TERMINAL: readonly GenieStatus[] = [
 
 interface GenieAttachment {
   attachment_id?: string;
-  query?: { sql?: string };
-  text?: Record<string, unknown>;
+  // The SQL lives in the `query` field of the query attachment.
+  query?: { query?: string };
+  text?: { content?: string; purpose?: string };
   viz?: Record<string, unknown>;
 }
 
@@ -131,6 +132,23 @@ async function pollMessage(
   }
 }
 
+// The agent's answer arrives as a text attachment with purpose
+// TEXT_ATTACHMENT_PURPOSE_ANSWER. The message's own `content` field holds the
+// user's question, so it must never be used as the answer.
+function extractAnswer(message: GenieMessage): string {
+  for (const attachment of message.attachments ?? []) {
+    const text = attachment.text;
+    if (
+      text &&
+      text.purpose === "TEXT_ATTACHMENT_PURPOSE_ANSWER" &&
+      typeof text.content === "string" &&
+      text.content
+    )
+      return text.content;
+  }
+  return "";
+}
+
 async function collectQueries(
   conversationId: string,
   message: GenieMessage,
@@ -138,7 +156,7 @@ async function collectQueries(
   const queries: GenieQueryResult[] = [];
   for (const attachment of message.attachments ?? []) {
     const sql =
-      typeof attachment.query?.sql === "string" ? attachment.query.sql : "";
+      typeof attachment.query?.query === "string" ? attachment.query.query : "";
     const id = attachment.attachment_id;
     if (!sql || !id) continue;
     let columns: string[] = [];
@@ -150,11 +168,15 @@ async function collectQueries(
           `/messages/${encodeURIComponent(message.message_id)}/attachments/${encodeURIComponent(id)}/query-result`,
       )) as {
         statement_response?: {
-          manifest?: { schema?: { column_names?: string[] } };
+          manifest?: { schema?: { columns?: { name?: string }[] } };
           result?: { data_array?: unknown[][]; is_truncated?: boolean };
         };
       };
-      columns = response.statement_response?.manifest?.schema?.column_names ?? [];
+      const manifestColumns =
+        response.statement_response?.manifest?.schema?.columns ?? [];
+      columns = manifestColumns
+        .map((column) => (typeof column.name === "string" ? column.name : ""))
+        .filter((name) => name.length > 0);
       rows = Array.isArray(response.statement_response?.result?.data_array)
         ? response.statement_response.result.data_array
         : [];
@@ -220,7 +242,7 @@ export async function askGenie(
     conversationId: conversation!,
     messageId: final.message_id,
     status: final.status,
-    answer: final.content || "The Genie agent returned no answer text.",
+    answer: extractAnswer(final) || "The Genie agent returned no answer text.",
     queries: await collectQueries(conversation!, final),
   };
 }
