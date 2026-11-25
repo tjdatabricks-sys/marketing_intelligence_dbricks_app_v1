@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import {
   BarChart,
   Bar,
@@ -331,6 +331,127 @@ interface GenieReplyData {
   answer: string;
   queries: GenieQueryResultData[];
 }
+// The Genie agent answers in markdown-lite (**bold**, `code`, bullet and
+// numbered lists, ### headings). Render it as styled elements so no raw
+// markup characters such as ** show up in the chat.
+function renderGenieInline(text: string, keyPrefix: string): ReactNode[] {
+  const parts: ReactNode[] = [];
+  const pattern = /(\*\*\*[^*]+\*\*\*|\*\*[^*]+\*\*|`[^`]+`)/g;
+  let last = 0;
+  let index = 0;
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > last) parts.push(text.slice(last, match.index));
+    const token = match[0];
+    if (token.startsWith("**"))
+      parts.push(<b key={`${keyPrefix}-b${index}`}>{token.slice(2, -2)}</b>);
+    else
+      parts.push(<code key={`${keyPrefix}-c${index}`}>{token.slice(1, -1)}</code>);
+    last = match.index + token.length;
+    index++;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts;
+}
+function GenieAnswer({ text }: { text: string }) {
+  const blocks: ReactNode[] = [];
+  let list: string[] = [];
+  let ordered = false;
+  const flush = (key: string) => {
+    if (list.length === 0) return;
+    const items = list.map((item, i) => (
+      <li key={`${key}-li${i}`}>{renderGenieInline(item, `${key}-li${i}`)}</li>
+    ));
+    blocks.push(
+      ordered ? <ol key={`ol-${key}`}>{items}</ol> : <ul key={`ul-${key}`}>{items}</ul>,
+    );
+    list = [];
+  };
+  text.split(/\r?\n/).forEach((line, i) => {
+    const trimmed = line.trim();
+    const bullet = /^[-*]\s+(.*)$/.exec(trimmed);
+    const numbered = /^(\d+)[.)]\s+(.*)$/.exec(trimmed);
+    if (bullet) {
+      if (ordered) flush(`b${i}`);
+      ordered = false;
+      list.push(bullet[1]);
+    } else if (numbered) {
+      if (!ordered) flush(`b${i}`);
+      ordered = true;
+      list.push(numbered[2]);
+    } else {
+      flush(`b${i}`);
+      if (!trimmed) return;
+      const heading = /^#{1,6}\s+(.*)$/.exec(trimmed);
+      const inline = renderGenieInline(
+        heading ? heading[1] : trimmed,
+        `p${i}`,
+      );
+      blocks.push(
+        heading ? <p key={`p${i}`}><b>{inline}</b></p> : <p key={`p${i}`}>{inline}</p>,
+      );
+    }
+  });
+  flush("end");
+  return <div className="genie-answer">{blocks}</div>;
+}
+// Draws a compact bar chart for a Genie query result when one column looks
+// numeric and another looks like a label. Falls back to the table alone.
+function GenieChart({ query }: { query: GenieQueryResultData }) {
+  const rows = query.rows;
+  if (rows.length < 2 || query.columns.length < 2) return null;
+  const numeric = (value: unknown) =>
+    value !== null &&
+    value !== undefined &&
+    value !== "" &&
+    !Number.isNaN(Number(value));
+  let valueIndex = -1;
+  let labelIndex = -1;
+  for (let c = 0; c < query.columns.length; c++) {
+    const ratio = rows.filter((row) => numeric(row[c])).length / rows.length;
+    if (ratio >= 0.8) {
+      if (valueIndex < 0) valueIndex = c;
+    } else if (labelIndex < 0) labelIndex = c;
+  }
+  if (valueIndex < 0 || labelIndex < 0) return null;
+  const data = rows.slice(0, 12).map((row, i) => ({
+    name: String(row[labelIndex] ?? "").slice(0, 18) || `#${i + 1}`,
+    value: Number(row[valueIndex]),
+  }));
+  if (data.every((item) => Number.isNaN(item.value))) return null;
+  return (
+    <div
+      className="genie-chart"
+      role="img"
+      aria-label={`${query.columns[valueIndex]} by ${query.columns[labelIndex]} chart`}
+    >
+      <ResponsiveContainer width="100%" height={210}>
+        <BarChart data={data} margin={{ top: 8, right: 12, left: 0, bottom: 4 }}>
+          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+          <XAxis
+            dataKey="name"
+            tick={{ fontSize: 10 }}
+            interval={0}
+            angle={-25}
+            textAnchor="end"
+            height={56}
+          />
+          <YAxis
+            tick={{ fontSize: 10 }}
+            tickFormatter={(value) => compact.format(Number(value))}
+          />
+          <Tooltip formatter={(value) => format(value, "number")} />
+          <Bar
+            dataKey="value"
+            name={query.columns[valueIndex]}
+            fill="#0d9488"
+            radius={[4, 4, 0, 0]}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
 function GenieChat() {
   const [turns, setTurns] = useState<
     { role: "user" | "genie"; text: string; reply?: GenieReplyData }[]
@@ -375,7 +496,8 @@ function GenieChat() {
         Ask natural-language questions about the marketing data warehouse.
         Answers come from the Marketing Data Warehouse Overview and Insights
         agent over the same 47-table gold schema. Follow-ups stay in one
-        conversation; the SQL behind each answer is shown with its results.
+        conversation; each answer is charted and shown with its SQL and
+        results.
       </p>
       {turns.length > 0 && (
         <div className="chat-turns">
@@ -385,16 +507,14 @@ function GenieChat() {
               key={i}
             >
               <b>{turn.role === "user" ? "You" : "Genie"}</b>
-              <p>{turn.text}</p>
+              {turn.role === "user" ? (
+                <p>{turn.text}</p>
+              ) : (
+                <GenieAnswer text={turn.text} />
+              )}
               {turn.reply?.queries.map((query) => (
-                <details key={query.attachmentId}>
-                  <summary>
-                    SQL
-                    {query.rowCount > 0 &&
-                      ` · ${query.rowCount.toLocaleString()} rows`}
-                    {query.truncated && " · first 50 rows shown"}
-                  </summary>
-                  <pre>{query.sql}</pre>
+                <div className="genie-query" key={query.attachmentId}>
+                  <GenieChart query={query} />
                   {query.columns.length > 0 && (
                     <div className="table-scroll">
                       <table>
@@ -421,7 +541,16 @@ function GenieChat() {
                       </table>
                     </div>
                   )}
-                </details>
+                  <details>
+                    <summary>
+                      SQL
+                      {query.rowCount > 0 &&
+                        ` · ${query.rowCount.toLocaleString()} rows`}
+                      {query.truncated && " · first 50 rows shown"}
+                    </summary>
+                    <pre>{query.sql}</pre>
+                  </details>
+                </div>
               ))}
             </article>
           ))}
