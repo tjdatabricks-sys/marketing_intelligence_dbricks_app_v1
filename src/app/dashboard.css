@@ -463,8 +463,8 @@ tbody tr:hover {
   background: #f8fafb;
   border: 1px solid #e0e6ed;
 }
-.chat-user b,
-.chat-genie b {
+.chat-user > b,
+.chat-genie > b {
   display: block;
   font-size: 10px;
   letter-spacing: 0.8px;
@@ -520,6 +520,15 @@ tbody tr:hover {
 .genie-answer li {
   line-height: 1.6;
   margin: 3px 0;
+}
+.genie-answer b {
+  display: inline;
+  font-size: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  color: inherit;
+  margin: 0;
+  font-weight: 600;
 }
 .genie-answer code {
   font-size: 11px;
